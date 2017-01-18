@@ -1,0 +1,15 @@
+---
+- name: Download and install PHPUnit
+  get_url: url=https://phar.phpunit.de/phpunit.phar dest=/usr/local/bin/phpunit mode=0755
+
+- name: Install composer
+  shell: curl -sS https://getcomposer.org/installer | sudo php -- --install-dir=/usr/local/bin --filename=composer
+
+- name: download wp-cli
+  sudo: yes
+  get_url: url=https://raw.githubusercontent.com/wp-cli/builds/gh-pages/phar/wp-cli.phar dest=/usr/local/bin/wp
+
+- name: Make WP-CLI executable
+  file:
+    path: /usr/local/bin/wp
+    mode: u=rwx,g=rx,o=rx

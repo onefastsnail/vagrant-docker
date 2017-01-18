@@ -1,0 +1,10 @@
+---
+- hosts: all
+  sudo: True
+  
+  tasks:
+    - include: tasks/php-devtools.yml
+
+  # roles:
+  #   - { role: docker, tags: [init, docker]  }
+  #   - { role: docker-compose, tags: [init, docker] }
